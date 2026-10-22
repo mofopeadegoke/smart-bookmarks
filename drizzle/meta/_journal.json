@@ -15,6 +15,13 @@
       "when": 1791815125610,
       "tag": "0001_mature_aaron_stack",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792657407624,
+      "tag": "0002_mysterious_tiger_shark",
+      "breakpoints": true
     }
   ]
 }

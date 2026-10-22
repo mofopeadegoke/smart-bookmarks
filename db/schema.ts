@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import {
   pgTable,
   pgEnum,
@@ -6,9 +7,16 @@ import {
   uuid,
   primaryKey,
   unique,
+  index,
+  customType,
 } from "drizzle-orm/pg-core";
 import { user } from "./auth-schema";
 export * from "./auth-schema";
+
+// Drizzle has no built-in tsvector type
+const tsvector = customType<{ data: string }>({
+  dataType: () => "tsvector",
+});
 
 export const bookmarkStatus = pgEnum("bookmark_status", [
   "pending",
@@ -31,10 +39,16 @@ export const bookmarks = pgTable(
     createdAt: timestamp("created_at", { withTimezone: true })
       .notNull()
       .defaultNow(),
+    // Title matches rank above summary matches
+    search: tsvector("search").generatedAlwaysAs(
+      sql`setweight(to_tsvector('english', coalesce(title, '')), 'A') || setweight(to_tsvector('english', coalesce(summary, '')), 'B')`,
+    ),
   },
-  (t) => [unique().on(t.userId, t.url)],
+  (t) => [
+    unique().on(t.userId, t.url),
+    index("bookmarks_search_idx").using("gin", t.search),
+  ],
 );
-
 export const tags = pgTable(
   "tags",
   {

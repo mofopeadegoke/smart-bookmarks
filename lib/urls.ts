@@ -17,3 +17,11 @@ export function normalizeUrl(input: string): string | null {
     return null;
   }
 }
+
+export function bookmarksHref({ q, tag }: { q?: string; tag?: string }) {
+  const params = new URLSearchParams();
+  if (q) params.set("q", q);
+  if (tag) params.set("tag", tag);
+  const query = params.toString();
+  return query ? `/?${query}` : "/";
+}

@@ -1,0 +1,2 @@
+ALTER TABLE "bookmarks" ADD COLUMN "search" "tsvector" GENERATED ALWAYS AS (setweight(to_tsvector('english', coalesce(title, '')), 'A') || setweight(to_tsvector('english', coalesce(summary, '')), 'B')) STORED;--> statement-breakpoint
+CREATE INDEX "bookmarks_search_idx" ON "bookmarks" USING gin ("search");
