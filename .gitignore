@@ -45,3 +45,9 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /e2e/.auth/
+
+# impeccable scratch (decision sketches, screenshots, session state)
+/.impeccable/mocks/
+/.impeccable/review/
+/.impeccable/questions/
+/.impeccable/hook.cache.json

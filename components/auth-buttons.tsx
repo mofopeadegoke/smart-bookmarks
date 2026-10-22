@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { LogOut } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@/components/spinner";
+import { GitHubMark } from "@/components/brand";
 
 export function SignInButton() {
   const [pending, setPending] = useState(false);
@@ -20,9 +22,9 @@ export function SignInButton() {
           setPending(false);
         }
       }}
-      className="inline-flex items-center gap-2 rounded-md bg-black px-4 py-2 text-white disabled:opacity-50"
+      className="inline-flex h-12 items-center gap-2.5 rounded-xl bg-ink px-5 font-semibold text-canvas shadow-card transition-transform hover:-translate-y-px hover:shadow-lift disabled:opacity-70"
     >
-      {pending && <Spinner label="Signing in" />}
+      {pending ? <Spinner label="Signing in" /> : <GitHubMark />}
       {pending ? "Signing in…" : "Sign in with GitHub"}
     </button>
   );
@@ -35,6 +37,7 @@ export function SignOutButton() {
   return (
     <button
       disabled={pending}
+      title="Sign out"
       onClick={async () => {
         setPending(true);
         try {
@@ -44,10 +47,10 @@ export function SignOutButton() {
           setPending(false);
         }
       }}
-      className="inline-flex items-center gap-2 rounded-md border px-4 py-2 disabled:opacity-50"
+      className="inline-flex size-8 items-center justify-center rounded-lg text-ink-2 transition-colors hover:bg-hover hover:text-ink disabled:opacity-70"
     >
-      {pending && <Spinner label="Signing out" />}
-      {pending ? "Signing out…" : "Sign out"}
+      {pending ? <Spinner label="Signing out" /> : <LogOut className="size-4" aria-hidden />}
+      <span className="sr-only">{pending ? "Signing out…" : "Sign out"}</span>
     </button>
   );
 }

@@ -1,0 +1,107 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          ".impeccable/mocks/decision/challenger-monochrome.html"
+        ],
+        "createdAt": "2026-10-22T12:23:28.517Z",
+        "reason": "decision-round sketch that deliberately depicts the generic SaaS/category-standard look for comparison; not shipped app code"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-22T12:23:28.536Z",
+        "reason": "decision-round sketch that deliberately depicts the generic SaaS/category-standard look for comparison; not shipped app code"
+      },
+      {
+        "rule": "skipped-heading",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-monochrome.html"
+        ],
+        "createdAt": "2026-10-22T12:23:28.553Z",
+        "reason": "decision-round sketch that deliberately depicts the generic SaaS/category-standard look for comparison; not shipped app code"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-22T12:23:28.571Z",
+        "reason": "decision-round sketch that deliberately depicts the generic SaaS/category-standard look for comparison; not shipped app code"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-10-22T12:34:33.231Z",
+        "reason": "throwaway decision-round sketch showing a rejected direction's fonts on purpose; not shipped app code"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-10-22T12:34:33.248Z",
+        "reason": "throwaway decision-round sketch showing a rejected direction's fonts on purpose; not shipped app code"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-monochrome.html"
+        ],
+        "createdAt": "2026-10-22T12:34:33.266Z",
+        "reason": "throwaway decision-round sketch showing a rejected direction's fonts on purpose; not shipped app code"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-22T12:34:33.285Z",
+        "reason": "throwaway decision-round sketch showing a rejected direction's fonts on purpose; not shipped app code"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-transit.html"
+        ],
+        "createdAt": "2026-10-22T12:34:33.303Z",
+        "reason": "throwaway decision-round sketch showing a rejected direction's fonts on purpose; not shipped app code"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-metro.html"
+        ],
+        "createdAt": "2026-10-22T12:34:33.322Z",
+        "reason": "throwaway decision-round sketch showing a rejected direction's fonts on purpose; not shipped app code"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-airport.html"
+        ],
+        "createdAt": "2026-10-22T12:34:33.341Z",
+        "reason": "throwaway decision-round sketch showing a rejected direction's fonts on purpose; not shipped app code"
+      }
+    ]
+  }
+}

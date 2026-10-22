@@ -1,26 +1,161 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  color-scheme: light;
+  --canvas: #faf9f7;
+  --dot: #dfdcd5;
+  --sidebar: #f2f1ee;
+  --surface: #ffffff;
+  --hover: #ebe9e4;
+  --ink: #262420;
+  --ink-2: #625e56;
+  --ink-3: #6a665d;
+  --line: #e6e3dd;
+  --accent: #ffd02f;
+  --accent-hover: #f5c400;
+  --accent-ink: #262420;
+  --sticky: #fff1a8;
+  --sticky-ink: #5c4a00;
+  --danger: #b42d1a;
+  --danger-bg: #fdebe7;
+  --focus: #2f6bff;
+  --selection: #ffe58a;
+  --shadow: 0 1px 2px rgb(38 36 32 / 0.06), 0 4px 12px rgb(38 36 32 / 0.05);
+  --shadow-lift: 0 2px 4px rgb(38 36 32 / 0.06), 0 12px 28px rgb(38 36 32 / 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: dark;
+    --canvas: #191918;
+    --dot: #2e2d2b;
+    --sidebar: #202020;
+    --surface: #252524;
+    --hover: #2f2f2d;
+    --ink: #edebe6;
+    --ink-2: #b0aca3;
+    --ink-3: #9a968d;
+    --line: #353432;
+    --accent: #ffd02f;
+    --accent-hover: #ffdb5c;
+    --accent-ink: #1f1d1a;
+    --sticky: #4a3f12;
+    --sticky-ink: #ffe58a;
+    --danger: #ff8a78;
+    --danger-bg: #3a1e1a;
+    --focus: #6b95ff;
+    --selection: #6b5a12;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px rgb(0 0 0 / 0.25);
+    --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 28px rgb(0 0 0 / 0.4);
   }
 }
 
+@theme inline {
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --color-canvas: var(--canvas);
+  --color-sidebar: var(--sidebar);
+  --color-surface: var(--surface);
+  --color-hover: var(--hover);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-sticky: var(--sticky);
+  --color-sticky-ink: var(--sticky-ink);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-focus: var(--focus);
+  --shadow-card: var(--shadow);
+  --shadow-lift: var(--shadow-lift);
+}
+
+/* Nine fixed tag tones; lib/tag-colors.ts picks one per tag name. */
+.tone-grey { --t-bg: #eeedea; --t-dot: #9b9a97; --t-ink: #46443f; }
+.tone-brown { --t-bg: #f1e7e1; --t-dot: #a27763; --t-ink: #5e4436; }
+.tone-orange { --t-bg: #fbe6d5; --t-dot: #e07b39; --t-ink: #7a3e12; }
+.tone-yellow { --t-bg: #fbf0cc; --t-dot: #d9a514; --t-ink: #6b5000; }
+.tone-green { --t-bg: #ddeee3; --t-dot: #4d9a6a; --t-ink: #1f5634; }
+.tone-blue { --t-bg: #dcebf7; --t-dot: #3e86c8; --t-ink: #174a75; }
+.tone-purple { --t-bg: #ebe2f5; --t-dot: #9065c6; --t-ink: #4c2c78; }
+.tone-pink { --t-bg: #f7e0ec; --t-dot: #cf5a97; --t-ink: #7a2350; }
+.tone-red { --t-bg: #fbe1de; --t-dot: #d9534a; --t-ink: #7e211b; }
+
+@media (prefers-color-scheme: dark) {
+  .tone-grey { --t-bg: #373735; --t-dot: #9b9a97; --t-ink: #dcdad5; }
+  .tone-brown { --t-bg: #3e302a; --t-dot: #b98b74; --t-ink: #ecd3c6; }
+  .tone-orange { --t-bg: #46301f; --t-dot: #e8894a; --t-ink: #f5cdab; }
+  .tone-yellow { --t-bg: #443a17; --t-dot: #e0b23a; --t-ink: #f2df9c; }
+  .tone-green { --t-bg: #233a2c; --t-dot: #5db07c; --t-ink: #bce3c9; }
+  .tone-blue { --t-bg: #1f3346; --t-dot: #5a9bd6; --t-ink: #bed9f3; }
+  .tone-purple { --t-bg: #35294a; --t-dot: #a07bd6; --t-ink: #dacaf1; }
+  .tone-pink { --t-bg: #43263a; --t-dot: #da70a8; --t-ink: #f3c7dd; }
+  .tone-red { --t-bg: #4a2522; --t-dot: #e36b62; --t-ink: #f6c6c1; }
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--canvas);
+  color: var(--ink);
+  caret-color: var(--ink);
+  accent-color: var(--accent);
+  scrollbar-color: var(--dot) transparent;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+.bg-dots {
+  background-color: var(--canvas);
+  background-image: radial-gradient(var(--dot) 1.2px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+
+@keyframes typing {
+  0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
+}
+
+.typing-dot {
+  animation: typing 1.2s ease-out infinite;
+}
+
+/* The one authored moment: a freshly analyzed card fades from sticky-note yellow into a plain card. */
+@keyframes settle {
+  from { background-color: var(--sticky); transform: translateY(-2px); }
+  to { background-color: var(--surface); transform: none; }
+}
+
+.just-ready {
+  animation: settle 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pop {
+  from { opacity: 0.4; transform: scale(0.85); }
+  to { opacity: 1; transform: none; }
+}
+
+.just-ready .tag-pill {
+  animation: pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(400ms + var(--i, 0) * 70ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-dot,
+  .just-ready,
+  .just-ready .tag-pill {
+    animation: none;
+  }
 }

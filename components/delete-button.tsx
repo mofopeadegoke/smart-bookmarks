@@ -1,6 +1,7 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
+import { Trash2 } from "lucide-react";
 import { Spinner } from "@/components/spinner";
 
 // `data-pending` lets the parent card fade via `has-[[data-pending]]`.
@@ -12,10 +13,11 @@ export function DeleteButton() {
       type="submit"
       disabled={pending}
       data-pending={pending || undefined}
-      className="inline-flex items-center gap-1 text-sm text-red-600 hover:underline disabled:no-underline"
+      title="Delete"
+      className="inline-flex size-8 items-center justify-center rounded-lg text-ink-3 transition-colors hover:bg-danger-bg hover:text-danger"
     >
-      {pending && <Spinner label="Deleting" />}
-      {pending ? "Deleting…" : "Delete"}
+      {pending ? <Spinner label="Deleting" /> : <Trash2 className="size-4" aria-hidden />}
+      <span className="sr-only">{pending ? "Deleting…" : "Delete"}</span>
     </button>
   );
 }

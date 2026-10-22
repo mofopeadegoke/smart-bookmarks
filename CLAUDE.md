@@ -57,12 +57,17 @@ lib/extract.ts         extractContent(html) → { title, text }
 lib/ai.ts              analyze() — real Claude, or fakeAnalyze when AI_MODE=fake
 lib/tags.ts            cleanTag() (Unicode letters kept, NFC, single dashes, 30 chars), attachTag(executor, userId, bookmarkId, name)
 lib/analyze.ts         analyzeBookmark(id): fetch → extract → AI → transaction saving tags + summary
-lib/queries.ts         getBookmarks(userId, {q, tag}), getTagCounts(userId), getTagsByBookmark(userId)
+lib/queries.ts         getBookmarks(userId, {q, tag}), getBookmarkStats(userId), getTagCounts(userId), getTagsByBookmark(userId)
+lib/tag-colors.ts      toneFor(name): stable hash → one of nine tag tones (CSS classes .tone-* in globals.css)
+lib/dates.ts           savedOn date formatter
 app/actions.ts         saveBookmark, deleteBookmark, addTag, removeTag, reanalyzeBookmark
 app/api/auth/[...all]/route.ts
-app/page.tsx           Page → Suspense → Home (reads session + searchParams) → Suspense(key=filter) → BookmarkList
+app/page.tsx           Page → Suspense → Home (session + searchParams): Welcome if signed out, else Sidebar + main
+                       (header with PageProperties, save, search, Suspense(key=filter) → BookmarkList)
 components/            auth-buttons, add-bookmark-form, auto-refresh, search-box, tag-filter,
                        bookmark-tags, bookmark-list (+ BookmarkListSkeleton),
+                       sidebar (tag nav + account), welcome (signed-out page), brand (BrandMark,
+                       GitHubMark), typing-dots,
                        spinner, form-button (submit with spinner via useFormStatus),
                        delete-button (also fades its card via data-pending)
 lib/*.test.ts          Vitest unit tests (urls, tags, safe-fetch with mocked DNS, ai reply parsing)
@@ -72,6 +77,22 @@ e2e/global-setup.ts    checks DB is up, runs migrations, creates "E2E User" + lo
 e2e/db.ts              test DB connection (refuses anything not localhost + *_test), reset and seed helpers
 e2e/bookmarks.spec.ts  save → analyzed, filter by tag, search, delete, signed-out screen
 ```
+
+## Design
+
+- Look and feel: Notion's sidebar-and-page structure with Miro's dotted board and yellow. Chosen by
+  Daniel; plain/minimal SaaS and costume metaphors were rejected. See `PRODUCT.md` (who/why) and
+  `DESIGN.md` (tokens and rules). `.impeccable/` holds the design skill's config, `design.json` and the
+  surface brief; its mocks/review/questions folders are scratch and git-ignored.
+- Tokens live as CSS variables in `app/globals.css` (light + dark via `prefers-color-scheme`), mapped to
+  Tailwind colours: `canvas`, `sidebar`, `surface`, `hover`, `ink`, `ink-2`, `ink-3`, `line`, `accent`,
+  `sticky`, `danger`, `focus`. Use these, not raw Tailwind greys.
+- Font: Onest (next/font). Icons: `lucide-react`, never emoji.
+- Yellow (`accent`) is for the main action and the active filter only. Tag colours come from `toneFor()`.
+- One authored motion: a pending card is a yellow sticky with typing dots; when ready it settles to
+  white and its pills pop in (`.just-ready`, off under reduced motion).
+- Keep the labels/roles the e2e tests use (Link to save, Save, Search bookmarks, Search, Filter by tag,
+  Clear, Delete, "N result(s)", "No bookmarks yet", Sign in with GitHub).
 
 ## Rules the code follows
 
@@ -94,7 +115,8 @@ e2e/bookmarks.spec.ts  save → analyzed, filter by tag, search, delete, signed-
 ## Status
 
 Steps 0–8 are done and working: setup, database, sign-in, saving, safe fetching, AI summaries and
-tags, tag filter and search with loading states, editing tags and re-analyze, unit and e2e tests.
+tags, tag filter and search with loading states, editing tags and re-analyze, unit and e2e tests,
+and a visual redesign (see Design).
 
 ## Remaining steps
 

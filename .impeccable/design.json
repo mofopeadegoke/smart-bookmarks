@@ -1,0 +1,1024 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-22T12:34:03+00:00",
+  "title": "Design System: Smart Bookmarks",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#faf9f7",
+        "dark": "#191918",
+        "cssVar": "--canvas",
+        "tonalRamp": [
+          "oklch(15.0% 0.003 84.6)",
+          "oklch(26.4% 0.003 84.6)",
+          "oklch(37.9% 0.003 84.6)",
+          "oklch(49.3% 0.003 84.6)",
+          "oklch(60.7% 0.003 84.6)",
+          "oklch(72.1% 0.003 84.6)",
+          "oklch(83.6% 0.003 84.6)",
+          "oklch(95.0% 0.003 84.6)"
+        ]
+      },
+      "board-dot": {
+        "role": "neutral",
+        "displayName": "Board Dot",
+        "canonical": "#dfdcd5",
+        "dark": "#2e2d2b",
+        "cssVar": "--dot",
+        "tonalRamp": [
+          "oklch(15.0% 0.010 87.5)",
+          "oklch(26.4% 0.010 87.5)",
+          "oklch(37.9% 0.010 87.5)",
+          "oklch(49.3% 0.010 87.5)",
+          "oklch(60.7% 0.010 87.5)",
+          "oklch(72.1% 0.010 87.5)",
+          "oklch(83.6% 0.010 87.5)",
+          "oklch(95.0% 0.010 87.5)"
+        ]
+      },
+      "sidebar": {
+        "role": "neutral",
+        "displayName": "Sidebar Stone",
+        "canonical": "#f2f1ee",
+        "dark": "#202020",
+        "cssVar": "--sidebar",
+        "tonalRamp": [
+          "oklch(15.0% 0.004 91.4)",
+          "oklch(26.4% 0.004 91.4)",
+          "oklch(37.9% 0.004 91.4)",
+          "oklch(49.3% 0.004 91.4)",
+          "oklch(60.7% 0.004 91.4)",
+          "oklch(72.1% 0.004 91.4)",
+          "oklch(83.6% 0.004 91.4)",
+          "oklch(95.0% 0.004 91.4)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Card White",
+        "canonical": "#ffffff",
+        "dark": "#252524",
+        "cssVar": "--surface",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 89.9)",
+          "oklch(26.4% 0.000 89.9)",
+          "oklch(37.9% 0.000 89.9)",
+          "oklch(49.3% 0.000 89.9)",
+          "oklch(60.7% 0.000 89.9)",
+          "oklch(72.1% 0.000 89.9)",
+          "oklch(83.6% 0.000 89.9)",
+          "oklch(95.0% 0.000 89.9)"
+        ]
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "Hover Stone",
+        "canonical": "#ebe9e4",
+        "dark": "#2f2f2d",
+        "cssVar": "--hover",
+        "tonalRamp": [
+          "oklch(15.0% 0.007 88.6)",
+          "oklch(26.4% 0.007 88.6)",
+          "oklch(37.9% 0.007 88.6)",
+          "oklch(49.3% 0.007 88.6)",
+          "oklch(60.7% 0.007 88.6)",
+          "oklch(72.1% 0.007 88.6)",
+          "oklch(83.6% 0.007 88.6)",
+          "oklch(95.0% 0.007 88.6)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Warm Ink",
+        "canonical": "#262420",
+        "dark": "#edebe6",
+        "cssVar": "--ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.008 84.6)",
+          "oklch(26.4% 0.008 84.6)",
+          "oklch(37.9% 0.008 84.6)",
+          "oklch(49.3% 0.008 84.6)",
+          "oklch(60.7% 0.008 84.6)",
+          "oklch(72.1% 0.008 84.6)",
+          "oklch(83.6% 0.008 84.6)",
+          "oklch(95.0% 0.008 84.6)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "#625e56",
+        "dark": "#b0aca3",
+        "cssVar": "--ink-2",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 84.6)",
+          "oklch(26.4% 0.014 84.6)",
+          "oklch(37.9% 0.014 84.6)",
+          "oklch(49.3% 0.014 84.6)",
+          "oklch(60.7% 0.014 84.6)",
+          "oklch(72.1% 0.014 84.6)",
+          "oklch(83.6% 0.014 84.6)",
+          "oklch(95.0% 0.014 84.6)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "canonical": "#6a665d",
+        "dark": "#9a968d",
+        "cssVar": "--ink-3",
+        "tonalRamp": [
+          "oklch(15.0% 0.015 86.9)",
+          "oklch(26.4% 0.015 86.9)",
+          "oklch(37.9% 0.015 86.9)",
+          "oklch(49.3% 0.015 86.9)",
+          "oklch(60.7% 0.015 86.9)",
+          "oklch(72.1% 0.015 86.9)",
+          "oklch(83.6% 0.015 86.9)",
+          "oklch(95.0% 0.015 86.9)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e6e3dd",
+        "dark": "#353432",
+        "cssVar": "--line",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 84.6)",
+          "oklch(26.4% 0.009 84.6)",
+          "oklch(37.9% 0.009 84.6)",
+          "oklch(49.3% 0.009 84.6)",
+          "oklch(60.7% 0.009 84.6)",
+          "oklch(72.1% 0.009 84.6)",
+          "oklch(83.6% 0.009 84.6)",
+          "oklch(95.0% 0.009 84.6)"
+        ]
+      },
+      "action-yellow": {
+        "role": "primary",
+        "displayName": "Action Yellow",
+        "canonical": "#ffd02f",
+        "dark": "#ffd02f",
+        "cssVar": "--accent",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 90.9)",
+          "oklch(26.4% 0.098 90.9)",
+          "oklch(37.9% 0.140 90.9)",
+          "oklch(49.3% 0.168 90.9)",
+          "oklch(60.7% 0.145 90.9)",
+          "oklch(72.1% 0.103 90.9)",
+          "oklch(83.6% 0.061 90.9)",
+          "oklch(95.0% 0.018 90.9)"
+        ]
+      },
+      "action-yellow-hover": {
+        "role": "primary",
+        "displayName": "Action Yellow Hover",
+        "canonical": "#f5c400",
+        "dark": "#ffdb5c",
+        "cssVar": "--accent-hover",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 90.4)",
+          "oklch(26.4% 0.098 90.4)",
+          "oklch(37.9% 0.140 90.4)",
+          "oklch(49.3% 0.172 90.4)",
+          "oklch(60.7% 0.145 90.4)",
+          "oklch(72.1% 0.103 90.4)",
+          "oklch(83.6% 0.061 90.4)",
+          "oklch(95.0% 0.018 90.4)"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Accent Ink",
+        "canonical": "#262420",
+        "dark": "#1f1d1a",
+        "cssVar": "--accent-ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.008 84.6)",
+          "oklch(26.4% 0.008 84.6)",
+          "oklch(37.9% 0.008 84.6)",
+          "oklch(49.3% 0.008 84.6)",
+          "oklch(60.7% 0.008 84.6)",
+          "oklch(72.1% 0.008 84.6)",
+          "oklch(83.6% 0.008 84.6)",
+          "oklch(95.0% 0.008 84.6)"
+        ]
+      },
+      "sticky": {
+        "role": "secondary",
+        "displayName": "Sticky Note",
+        "canonical": "#fff1a8",
+        "dark": "#4a3f12",
+        "cssVar": "--sticky",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 98.6)",
+          "oklch(26.4% 0.093 98.6)",
+          "oklch(37.9% 0.093 98.6)",
+          "oklch(49.3% 0.093 98.6)",
+          "oklch(60.7% 0.093 98.6)",
+          "oklch(72.1% 0.093 98.6)",
+          "oklch(83.6% 0.061 98.6)",
+          "oklch(95.0% 0.018 98.6)"
+        ]
+      },
+      "sticky-ink": {
+        "role": "secondary",
+        "displayName": "Sticky Ink",
+        "canonical": "#5c4a00",
+        "dark": "#ffe58a",
+        "cssVar": "--sticky-ink",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 92.8)",
+          "oklch(26.4% 0.085 92.8)",
+          "oklch(37.9% 0.085 92.8)",
+          "oklch(49.3% 0.085 92.8)",
+          "oklch(60.7% 0.085 92.8)",
+          "oklch(72.1% 0.085 92.8)",
+          "oklch(83.6% 0.061 92.8)",
+          "oklch(95.0% 0.018 92.8)"
+        ]
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "Danger",
+        "canonical": "#b42d1a",
+        "dark": "#ff8a78",
+        "cssVar": "--danger",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 31.3)",
+          "oklch(26.4% 0.098 31.3)",
+          "oklch(37.9% 0.140 31.3)",
+          "oklch(49.3% 0.175 31.3)",
+          "oklch(60.7% 0.145 31.3)",
+          "oklch(72.1% 0.103 31.3)",
+          "oklch(83.6% 0.061 31.3)",
+          "oklch(95.0% 0.018 31.3)"
+        ]
+      },
+      "danger-bg": {
+        "role": "neutral",
+        "displayName": "Danger Wash",
+        "canonical": "#fdebe7",
+        "dark": "#3a1e1a",
+        "cssVar": "--danger-bg",
+        "tonalRamp": [
+          "oklch(15.0% 0.020 32.5)",
+          "oklch(26.4% 0.020 32.5)",
+          "oklch(37.9% 0.020 32.5)",
+          "oklch(49.3% 0.020 32.5)",
+          "oklch(60.7% 0.020 32.5)",
+          "oklch(72.1% 0.020 32.5)",
+          "oklch(83.6% 0.020 32.5)",
+          "oklch(95.0% 0.018 32.5)"
+        ]
+      },
+      "focus": {
+        "role": "neutral",
+        "displayName": "Focus Blue",
+        "canonical": "#2f6bff",
+        "dark": "#6b95ff",
+        "cssVar": "--focus",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 263.9)",
+          "oklch(26.4% 0.098 263.9)",
+          "oklch(37.9% 0.140 263.9)",
+          "oklch(49.3% 0.182 263.9)",
+          "oklch(60.7% 0.145 263.9)",
+          "oklch(72.1% 0.103 263.9)",
+          "oklch(83.6% 0.061 263.9)",
+          "oklch(95.0% 0.018 263.9)"
+        ]
+      },
+      "selection": {
+        "role": "secondary",
+        "displayName": "Highlighter",
+        "canonical": "#ffe58a",
+        "dark": "#6b5a12",
+        "cssVar": "--selection",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 93.9)",
+          "oklch(26.4% 0.098 93.9)",
+          "oklch(37.9% 0.115 93.9)",
+          "oklch(49.3% 0.115 93.9)",
+          "oklch(60.7% 0.115 93.9)",
+          "oklch(72.1% 0.103 93.9)",
+          "oklch(83.6% 0.061 93.9)",
+          "oklch(95.0% 0.018 93.9)"
+        ]
+      },
+      "tag-grey-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Grey Background",
+        "canonical": "#eeedea",
+        "dark": "#373735",
+        "cssVar": "--t-bg (.tone-grey)",
+        "tonalRamp": [
+          "oklch(15.0% 0.004 91.4)",
+          "oklch(26.4% 0.004 91.4)",
+          "oklch(37.9% 0.004 91.4)",
+          "oklch(49.3% 0.004 91.4)",
+          "oklch(60.7% 0.004 91.4)",
+          "oklch(72.1% 0.004 91.4)",
+          "oklch(83.6% 0.004 91.4)",
+          "oklch(95.0% 0.004 91.4)"
+        ]
+      },
+      "tag-grey-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Grey Dot",
+        "canonical": "#9b9a97",
+        "dark": "#9b9a97",
+        "cssVar": "--t-dot (.tone-grey)",
+        "tonalRamp": [
+          "oklch(15.0% 0.004 91.5)",
+          "oklch(26.4% 0.004 91.5)",
+          "oklch(37.9% 0.004 91.5)",
+          "oklch(49.3% 0.004 91.5)",
+          "oklch(60.7% 0.004 91.5)",
+          "oklch(72.1% 0.004 91.5)",
+          "oklch(83.6% 0.004 91.5)",
+          "oklch(95.0% 0.004 91.5)"
+        ]
+      },
+      "tag-grey-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Grey Ink",
+        "canonical": "#46443f",
+        "dark": "#dcdad5",
+        "cssVar": "--t-ink (.tone-grey)",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 88.7)",
+          "oklch(26.4% 0.009 88.7)",
+          "oklch(37.9% 0.009 88.7)",
+          "oklch(49.3% 0.009 88.7)",
+          "oklch(60.7% 0.009 88.7)",
+          "oklch(72.1% 0.009 88.7)",
+          "oklch(83.6% 0.009 88.7)",
+          "oklch(95.0% 0.009 88.7)"
+        ]
+      },
+      "tag-brown-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Brown Background",
+        "canonical": "#f1e7e1",
+        "dark": "#3e302a",
+        "cssVar": "--t-bg (.tone-brown)",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 53.3)",
+          "oklch(26.4% 0.014 53.3)",
+          "oklch(37.9% 0.014 53.3)",
+          "oklch(49.3% 0.014 53.3)",
+          "oklch(60.7% 0.014 53.3)",
+          "oklch(72.1% 0.014 53.3)",
+          "oklch(83.6% 0.014 53.3)",
+          "oklch(95.0% 0.014 53.3)"
+        ]
+      },
+      "tag-brown-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Brown Dot",
+        "canonical": "#a27763",
+        "dark": "#b98b74",
+        "cssVar": "--t-dot (.tone-brown)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 46.0)",
+          "oklch(26.4% 0.062 46.0)",
+          "oklch(37.9% 0.062 46.0)",
+          "oklch(49.3% 0.062 46.0)",
+          "oklch(60.7% 0.062 46.0)",
+          "oklch(72.1% 0.062 46.0)",
+          "oklch(83.6% 0.061 46.0)",
+          "oklch(95.0% 0.018 46.0)"
+        ]
+      },
+      "tag-brown-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Brown Ink",
+        "canonical": "#5e4436",
+        "dark": "#ecd3c6",
+        "cssVar": "--t-ink (.tone-brown)",
+        "tonalRamp": [
+          "oklch(15.0% 0.043 49.4)",
+          "oklch(26.4% 0.043 49.4)",
+          "oklch(37.9% 0.043 49.4)",
+          "oklch(49.3% 0.043 49.4)",
+          "oklch(60.7% 0.043 49.4)",
+          "oklch(72.1% 0.043 49.4)",
+          "oklch(83.6% 0.043 49.4)",
+          "oklch(95.0% 0.018 49.4)"
+        ]
+      },
+      "tag-orange-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Orange Background",
+        "canonical": "#fbe6d5",
+        "dark": "#46301f",
+        "cssVar": "--t-bg (.tone-orange)",
+        "tonalRamp": [
+          "oklch(15.0% 0.032 61.4)",
+          "oklch(26.4% 0.032 61.4)",
+          "oklch(37.9% 0.032 61.4)",
+          "oklch(49.3% 0.032 61.4)",
+          "oklch(60.7% 0.032 61.4)",
+          "oklch(72.1% 0.032 61.4)",
+          "oklch(83.6% 0.032 61.4)",
+          "oklch(95.0% 0.018 61.4)"
+        ]
+      },
+      "tag-orange-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Orange Dot",
+        "canonical": "#e07b39",
+        "dark": "#e8894a",
+        "cssVar": "--t-dot (.tone-orange)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 50.8)",
+          "oklch(26.4% 0.098 50.8)",
+          "oklch(37.9% 0.140 50.8)",
+          "oklch(49.3% 0.148 50.8)",
+          "oklch(60.7% 0.145 50.8)",
+          "oklch(72.1% 0.103 50.8)",
+          "oklch(83.6% 0.061 50.8)",
+          "oklch(95.0% 0.018 50.8)"
+        ]
+      },
+      "tag-orange-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Orange Ink",
+        "canonical": "#7a3e12",
+        "dark": "#f5cdab",
+        "cssVar": "--t-ink (.tone-orange)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 52.0)",
+          "oklch(26.4% 0.098 52.0)",
+          "oklch(37.9% 0.100 52.0)",
+          "oklch(49.3% 0.100 52.0)",
+          "oklch(60.7% 0.100 52.0)",
+          "oklch(72.1% 0.100 52.0)",
+          "oklch(83.6% 0.061 52.0)",
+          "oklch(95.0% 0.018 52.0)"
+        ]
+      },
+      "tag-yellow-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Yellow Background",
+        "canonical": "#fbf0cc",
+        "dark": "#443a17",
+        "cssVar": "--t-bg (.tone-yellow)",
+        "tonalRamp": [
+          "oklch(15.0% 0.048 93.0)",
+          "oklch(26.4% 0.048 93.0)",
+          "oklch(37.9% 0.048 93.0)",
+          "oklch(49.3% 0.048 93.0)",
+          "oklch(60.7% 0.048 93.0)",
+          "oklch(72.1% 0.048 93.0)",
+          "oklch(83.6% 0.048 93.0)",
+          "oklch(95.0% 0.018 93.0)"
+        ]
+      },
+      "tag-yellow-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Yellow Dot",
+        "canonical": "#d9a514",
+        "dark": "#e0b23a",
+        "cssVar": "--t-dot (.tone-yellow)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 85.1)",
+          "oklch(26.4% 0.098 85.1)",
+          "oklch(37.9% 0.140 85.1)",
+          "oklch(49.3% 0.150 85.1)",
+          "oklch(60.7% 0.145 85.1)",
+          "oklch(72.1% 0.103 85.1)",
+          "oklch(83.6% 0.061 85.1)",
+          "oklch(95.0% 0.018 85.1)"
+        ]
+      },
+      "tag-yellow-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Yellow Ink",
+        "canonical": "#6b5000",
+        "dark": "#f2df9c",
+        "cssVar": "--t-ink (.tone-yellow)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 86.1)",
+          "oklch(26.4% 0.092 86.1)",
+          "oklch(37.9% 0.092 86.1)",
+          "oklch(49.3% 0.092 86.1)",
+          "oklch(60.7% 0.092 86.1)",
+          "oklch(72.1% 0.092 86.1)",
+          "oklch(83.6% 0.061 86.1)",
+          "oklch(95.0% 0.018 86.1)"
+        ]
+      },
+      "tag-green-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Green Background",
+        "canonical": "#ddeee3",
+        "dark": "#233a2c",
+        "cssVar": "--t-bg (.tone-green)",
+        "tonalRamp": [
+          "oklch(15.0% 0.023 157.6)",
+          "oklch(26.4% 0.023 157.6)",
+          "oklch(37.9% 0.023 157.6)",
+          "oklch(49.3% 0.023 157.6)",
+          "oklch(60.7% 0.023 157.6)",
+          "oklch(72.1% 0.023 157.6)",
+          "oklch(83.6% 0.023 157.6)",
+          "oklch(95.0% 0.018 157.6)"
+        ]
+      },
+      "tag-green-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Green Dot",
+        "canonical": "#4d9a6a",
+        "dark": "#5db07c",
+        "cssVar": "--t-dot (.tone-green)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 154.5)",
+          "oklch(26.4% 0.098 154.5)",
+          "oklch(37.9% 0.106 154.5)",
+          "oklch(49.3% 0.106 154.5)",
+          "oklch(60.7% 0.106 154.5)",
+          "oklch(72.1% 0.103 154.5)",
+          "oklch(83.6% 0.061 154.5)",
+          "oklch(95.0% 0.018 154.5)"
+        ]
+      },
+      "tag-green-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Green Ink",
+        "canonical": "#1f5634",
+        "dark": "#bce3c9",
+        "cssVar": "--t-ink (.tone-green)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 153.5)",
+          "oklch(26.4% 0.082 153.5)",
+          "oklch(37.9% 0.082 153.5)",
+          "oklch(49.3% 0.082 153.5)",
+          "oklch(60.7% 0.082 153.5)",
+          "oklch(72.1% 0.082 153.5)",
+          "oklch(83.6% 0.061 153.5)",
+          "oklch(95.0% 0.018 153.5)"
+        ]
+      },
+      "tag-blue-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Blue Background",
+        "canonical": "#dcebf7",
+        "dark": "#1f3346",
+        "cssVar": "--t-bg (.tone-blue)",
+        "tonalRamp": [
+          "oklch(15.0% 0.023 241.9)",
+          "oklch(26.4% 0.023 241.9)",
+          "oklch(37.9% 0.023 241.9)",
+          "oklch(49.3% 0.023 241.9)",
+          "oklch(60.7% 0.023 241.9)",
+          "oklch(72.1% 0.023 241.9)",
+          "oklch(83.6% 0.023 241.9)",
+          "oklch(95.0% 0.018 241.9)"
+        ]
+      },
+      "tag-blue-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Blue Dot",
+        "canonical": "#3e86c8",
+        "dark": "#5a9bd6",
+        "cssVar": "--t-dot (.tone-blue)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 248.9)",
+          "oklch(26.4% 0.098 248.9)",
+          "oklch(37.9% 0.124 248.9)",
+          "oklch(49.3% 0.124 248.9)",
+          "oklch(60.7% 0.124 248.9)",
+          "oklch(72.1% 0.103 248.9)",
+          "oklch(83.6% 0.061 248.9)",
+          "oklch(95.0% 0.018 248.9)"
+        ]
+      },
+      "tag-blue-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Blue Ink",
+        "canonical": "#174a75",
+        "dark": "#bed9f3",
+        "cssVar": "--t-ink (.tone-blue)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 248.1)",
+          "oklch(26.4% 0.090 248.1)",
+          "oklch(37.9% 0.090 248.1)",
+          "oklch(49.3% 0.090 248.1)",
+          "oklch(60.7% 0.090 248.1)",
+          "oklch(72.1% 0.090 248.1)",
+          "oklch(83.6% 0.061 248.1)",
+          "oklch(95.0% 0.018 248.1)"
+        ]
+      },
+      "tag-purple-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Purple Background",
+        "canonical": "#ebe2f5",
+        "dark": "#35294a",
+        "cssVar": "--t-bg (.tone-purple)",
+        "tonalRamp": [
+          "oklch(15.0% 0.027 307.0)",
+          "oklch(26.4% 0.027 307.0)",
+          "oklch(37.9% 0.027 307.0)",
+          "oklch(49.3% 0.027 307.0)",
+          "oklch(60.7% 0.027 307.0)",
+          "oklch(72.1% 0.027 307.0)",
+          "oklch(83.6% 0.027 307.0)",
+          "oklch(95.0% 0.018 307.0)"
+        ]
+      },
+      "tag-purple-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Purple Dot",
+        "canonical": "#9065c6",
+        "dark": "#a07bd6",
+        "cssVar": "--t-dot (.tone-purple)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 302.6)",
+          "oklch(26.4% 0.098 302.6)",
+          "oklch(37.9% 0.140 302.6)",
+          "oklch(49.3% 0.148 302.6)",
+          "oklch(60.7% 0.145 302.6)",
+          "oklch(72.1% 0.103 302.6)",
+          "oklch(83.6% 0.061 302.6)",
+          "oklch(95.0% 0.018 302.6)"
+        ]
+      },
+      "tag-purple-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Purple Ink",
+        "canonical": "#4c2c78",
+        "dark": "#dacaf1",
+        "cssVar": "--t-ink (.tone-purple)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 299.8)",
+          "oklch(26.4% 0.098 299.8)",
+          "oklch(37.9% 0.125 299.8)",
+          "oklch(49.3% 0.125 299.8)",
+          "oklch(60.7% 0.125 299.8)",
+          "oklch(72.1% 0.103 299.8)",
+          "oklch(83.6% 0.061 299.8)",
+          "oklch(95.0% 0.018 299.8)"
+        ]
+      },
+      "tag-pink-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Pink Background",
+        "canonical": "#f7e0ec",
+        "dark": "#43263a",
+        "cssVar": "--t-bg (.tone-pink)",
+        "tonalRamp": [
+          "oklch(15.0% 0.030 344.8)",
+          "oklch(26.4% 0.030 344.8)",
+          "oklch(37.9% 0.030 344.8)",
+          "oklch(49.3% 0.030 344.8)",
+          "oklch(60.7% 0.030 344.8)",
+          "oklch(72.1% 0.030 344.8)",
+          "oklch(83.6% 0.030 344.8)",
+          "oklch(95.0% 0.018 344.8)"
+        ]
+      },
+      "tag-pink-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Pink Dot",
+        "canonical": "#cf5a97",
+        "dark": "#da70a8",
+        "cssVar": "--t-dot (.tone-pink)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 350.3)",
+          "oklch(26.4% 0.098 350.3)",
+          "oklch(37.9% 0.140 350.3)",
+          "oklch(49.3% 0.162 350.3)",
+          "oklch(60.7% 0.145 350.3)",
+          "oklch(72.1% 0.103 350.3)",
+          "oklch(83.6% 0.061 350.3)",
+          "oklch(95.0% 0.018 350.3)"
+        ]
+      },
+      "tag-pink-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Pink Ink",
+        "canonical": "#7a2350",
+        "dark": "#f3c7dd",
+        "cssVar": "--t-ink (.tone-pink)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 352.5)",
+          "oklch(26.4% 0.098 352.5)",
+          "oklch(37.9% 0.129 352.5)",
+          "oklch(49.3% 0.129 352.5)",
+          "oklch(60.7% 0.129 352.5)",
+          "oklch(72.1% 0.103 352.5)",
+          "oklch(83.6% 0.061 352.5)",
+          "oklch(95.0% 0.018 352.5)"
+        ]
+      },
+      "tag-red-bg": {
+        "role": "tertiary",
+        "displayName": "Tag Red Background",
+        "canonical": "#fbe1de",
+        "dark": "#4a2522",
+        "cssVar": "--t-bg (.tone-red)",
+        "tonalRamp": [
+          "oklch(15.0% 0.029 25.6)",
+          "oklch(26.4% 0.029 25.6)",
+          "oklch(37.9% 0.029 25.6)",
+          "oklch(49.3% 0.029 25.6)",
+          "oklch(60.7% 0.029 25.6)",
+          "oklch(72.1% 0.029 25.6)",
+          "oklch(83.6% 0.029 25.6)",
+          "oklch(95.0% 0.018 25.6)"
+        ]
+      },
+      "tag-red-dot": {
+        "role": "tertiary",
+        "displayName": "Tag Red Dot",
+        "canonical": "#d9534a",
+        "dark": "#e36b62",
+        "cssVar": "--t-dot (.tone-red)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 27.0)",
+          "oklch(26.4% 0.098 27.0)",
+          "oklch(37.9% 0.140 27.0)",
+          "oklch(49.3% 0.170 27.0)",
+          "oklch(60.7% 0.145 27.0)",
+          "oklch(72.1% 0.103 27.0)",
+          "oklch(83.6% 0.061 27.0)",
+          "oklch(95.0% 0.018 27.0)"
+        ]
+      },
+      "tag-red-ink": {
+        "role": "tertiary",
+        "displayName": "Tag Red Ink",
+        "canonical": "#7e211b",
+        "dark": "#f6c6c1",
+        "cssVar": "--t-ink (.tone-red)",
+        "tonalRamp": [
+          "oklch(15.0% 0.056 28.1)",
+          "oklch(26.4% 0.098 28.1)",
+          "oklch(37.9% 0.129 28.1)",
+          "oklch(49.3% 0.129 28.1)",
+          "oklch(60.7% 0.129 28.1)",
+          "oklch(72.1% 0.103 28.1)",
+          "oklch(83.6% 0.061 28.1)",
+          "oklch(95.0% 0.018 28.1)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Signed-out welcome headline only; 3rem on phones."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page title under the page icon; 2.25rem on phones."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, clamped to two lines."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Summaries, nav items, search text, in Ink 2."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "Welcome paragraph, max 46ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Metadata, properties, tag pills, results line; tabular numerals for counts and dates."
+      },
+      "group-label": {
+        "displayName": "Group Label",
+        "purpose": "Uppercase sidebar group heading ('Tags') only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0 1px 2px rgb(38 36 32 / 0.06), 0 4px 12px rgb(38 36 32 / 0.05)",
+        "dark": "0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px rgb(0 0 0 / 0.25)",
+        "purpose": "Resting cards, sticky notes, save bar, sign-in button."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 4px rgb(38 36 32 / 0.06), 0 12px 28px rgb(38 36 32 / 0.1)",
+        "dark": "0 2px 4px rgb(0 0 0 / 0.35), 0 12px 28px rgb(0 0 0 / 0.4)",
+        "purpose": "Hover and focus-within raise; illustrative welcome-board cards."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Settle and pop arrival animations."
+      },
+      {
+        "name": "settle",
+        "value": "1.4s ease-settle, sticky to surface background, translateY(-2px) to 0",
+        "purpose": "A freshly analyzed card turns from sticky note into a white card."
+      },
+      {
+        "name": "pop",
+        "value": "0.5s ease-settle, scale(0.85) opacity 0.4 to 1, delay 400ms + 70ms per pill",
+        "purpose": "Tag pills arriving on a freshly analyzed card."
+      },
+      {
+        "name": "typing",
+        "value": "1.2s ease-out infinite, 150ms stagger",
+        "purpose": "Three typing dots on the pending sticky note."
+      },
+      {
+        "name": "state-transition",
+        "value": "Tailwind default 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Colour, shadow and opacity changes on hover/focus/pending."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "typing, settle and pop disabled",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "Sidebar becomes a fixed column; top bar and tag strip below."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "purpose": "Two-column card board; welcome splits into copy and example board."
+      }
+    ],
+    "board": {
+      "dotColor": "board-dot",
+      "dotRadius": "1.2px",
+      "gridSize": "22px"
+    },
+    "focus": {
+      "value": "2px solid var(--focus)",
+      "offset": "2px"
+    }
+  },
+  "components": [
+    {
+      "name": "Save Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action: yellow with ink text, inside the save bar.",
+      "html": "<button class=\"ds-btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg>Save</button>",
+      "css": ".ds-btn-primary { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border: none; border-radius: 12px; background: var(--accent, #ffd02f); color: var(--accent-ink, #262420); font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.15s; } .ds-btn-primary:hover { background: var(--accent-hover, #f5c400); } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus, #2f6bff); outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.7; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "White bordered button beside the search field.",
+      "html": "<button class=\"ds-btn-secondary\">Search</button>",
+      "css": ".ds-btn-secondary { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; height: 40px; padding: 0 16px; border: 1px solid var(--line, #e6e3dd); border-radius: 12px; background: var(--surface, #fff); color: var(--ink, #262420); font-size: 15px; font-weight: 500; cursor: pointer; transition: background-color 0.15s; } .ds-btn-secondary:hover { background: var(--hover, #ebe9e4); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus, #2f6bff); outline-offset: 2px; }"
+    },
+    {
+      "name": "Icon Button",
+      "kind": "button",
+      "refersTo": "button-icon",
+      "description": "32px quiet icon actions on cards; delete hovers to danger.",
+      "html": "<div class=\"ds-icon-row\"><button class=\"ds-btn-icon\" aria-label=\"Delete\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 6h18\"/><path d=\"M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6\"/><path d=\"M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2\"/></svg></button></div>",
+      "css": ".ds-icon-row { display: flex; } .ds-btn-icon { display: inline-grid; place-items: center; width: 32px; height: 32px; border: none; border-radius: 8px; background: transparent; color: var(--ink-3, #6a665d); cursor: pointer; transition: background-color 0.15s, color 0.15s; } .ds-btn-icon:hover { background: var(--danger-bg, #fdebe7); color: var(--danger, #b42d1a); } .ds-btn-icon:focus-visible { outline: 2px solid var(--focus, #2f6bff); outline-offset: 2px; }"
+    },
+    {
+      "name": "Save Bar",
+      "kind": "input",
+      "refersTo": "input-save-bar",
+      "description": "The paste-a-link field: a floating white bar that lifts on focus, holding the Save button.",
+      "html": "<form class=\"ds-savebar\" onsubmit=\"return false\"><span class=\"ds-savebar-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 17H7A5 5 0 0 1 7 7h2\"/><path d=\"M15 7h2a5 5 0 1 1 0 10h-2\"/><line x1=\"8\" x2=\"16\" y1=\"12\" y2=\"12\"/></svg></span><input class=\"ds-savebar-input\" placeholder=\"Paste a link to save\" aria-label=\"Link to save\"><button class=\"ds-savebar-btn\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg>Save</button></form>",
+      "css": ".ds-savebar { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: flex; align-items: center; gap: 8px; max-width: 640px; padding: 8px; border: 1px solid var(--line, #e6e3dd); border-radius: 16px; background: var(--surface, #fff); box-shadow: var(--shadow, 0 1px 2px rgb(38 36 32 / 0.06), 0 4px 12px rgb(38 36 32 / 0.05)); transition: box-shadow 0.15s; } .ds-savebar:focus-within { box-shadow: var(--shadow-lift, 0 2px 4px rgb(38 36 32 / 0.06), 0 12px 28px rgb(38 36 32 / 0.1)); } .ds-savebar-icon { display: inline-flex; margin-left: 8px; color: var(--ink-3, #6a665d); } .ds-savebar-input { flex: 1; min-width: 0; padding: 8px 4px; border: none; background: transparent; color: var(--ink, #262420); font: inherit; font-size: 16px; outline: none; } .ds-savebar-input::placeholder { color: var(--ink-3, #6a665d); } .ds-savebar-btn { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border: none; border-radius: 12px; background: var(--accent, #ffd02f); color: var(--accent-ink, #262420); font-size: 16px; font-weight: 600; cursor: pointer; } .ds-savebar-btn:hover { background: var(--accent-hover, #f5c400); } .ds-savebar-btn:focus-visible { outline: 2px solid var(--focus, #2f6bff); outline-offset: 2px; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "Flat bordered search; the border darkens on focus.",
+      "html": "<label class=\"ds-search\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input type=\"search\" placeholder=\"Search titles and summaries\" aria-label=\"Search bookmarks\"></label>",
+      "css": ".ds-search { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: flex; align-items: center; gap: 8px; max-width: 36rem; padding: 0 12px; border: 1px solid var(--line, #e6e3dd); border-radius: 12px; background: var(--surface, #fff); color: var(--ink-3, #6a665d); transition: border-color 0.15s; } .ds-search:focus-within { border-color: var(--ink-3, #6a665d); } .ds-search input { flex: 1; min-width: 0; height: 40px; border: none; background: transparent; color: var(--ink, #262420); font: inherit; font-size: 15px; outline: none; } .ds-search input::placeholder { color: var(--ink-3, #6a665d); }"
+    },
+    {
+      "name": "Sidebar Filter Nav",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Filter by tag: tone dots and counts; the current item is action yellow.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Filter by tag\"><a class=\"ds-nav-item ds-nav-current\" href=\"#\" aria-current=\"page\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 6 4 14\"/><path d=\"M12 6v14\"/><path d=\"M8 8v12\"/><path d=\"M4 4v16\"/></svg>All bookmarks<span class=\"ds-count\">7</span></a><p class=\"ds-nav-group\">Tags</p><a class=\"ds-nav-item\" href=\"#\"><span class=\"ds-dot\" style=\"background:#e07b39\"></span>databases<span class=\"ds-count\">2</span></a><a class=\"ds-nav-item\" href=\"#\"><span class=\"ds-dot\" style=\"background:#4d9a6a\"></span>ai-engineering<span class=\"ds-count\">1</span></a></nav>",
+      "css": ".ds-nav { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: flex; flex-direction: column; gap: 4px; width: 240px; padding: 16px 12px; background: var(--sidebar, #f2f1ee); } .ds-nav-item { display: flex; align-items: center; gap: 10px; padding: 6px 10px; border-radius: 8px; color: var(--ink-2, #625e56); font-size: 15px; text-decoration: none; transition: background-color 0.15s, color 0.15s; } .ds-nav-item svg { color: var(--ink-3, #6a665d); } .ds-nav-item:hover { background: var(--hover, #ebe9e4); color: var(--ink, #262420); } .ds-nav-item:focus-visible { outline: 2px solid var(--focus, #2f6bff); outline-offset: 2px; } .ds-nav-current, .ds-nav-current:hover { background: var(--accent, #ffd02f); color: var(--accent-ink, #262420); font-weight: 500; } .ds-nav-current svg, .ds-nav-current .ds-count { color: var(--accent-ink, #262420); } .ds-count { margin-left: auto; padding-left: 8px; font-size: 14px; color: var(--ink-3, #6a665d); font-variant-numeric: tabular-nums; } .ds-dot { width: 10px; height: 10px; flex-shrink: 0; border-radius: 9999px; } .ds-nav-group { margin: 0; padding: 20px 10px 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.025em; text-transform: uppercase; color: var(--ink-3, #6a665d); }"
+    },
+    {
+      "name": "Tag Pill",
+      "kind": "chip",
+      "refersTo": "tag-pill",
+      "description": "Pale tone pill with a darker dot; tone is hashed from the tag name.",
+      "html": "<ul class=\"ds-tags\"><li class=\"ds-tag\" style=\"--t-bg:#dcebf7;--t-dot:#3e86c8;--t-ink:#174a75\"><a href=\"#\"><span class=\"ds-tag-dot\"></span>react</a><button aria-label=\"Remove tag react\">&#215;</button></li><li class=\"ds-tag\" style=\"--t-bg:#fbe6d5;--t-dot:#e07b39;--t-ink:#7a3e12\"><a href=\"#\"><span class=\"ds-tag-dot\"></span>databases</a><button aria-label=\"Remove tag databases\">&#215;</button></li><li class=\"ds-tag\" style=\"--t-bg:#ddeee3;--t-dot:#4d9a6a;--t-ink:#1f5634\"><a href=\"#\"><span class=\"ds-tag-dot\"></span>ai-engineering</a><button aria-label=\"Remove tag ai-engineering\">&#215;</button></li></ul>",
+      "css": ".ds-tags { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; } .ds-tag { display: inline-flex; align-items: center; border-radius: 6px; background: var(--t-bg); color: var(--t-ink); font-size: 14px; } .ds-tag a { display: inline-flex; align-items: center; gap: 6px; padding: 2px 0 2px 8px; color: inherit; text-decoration: none; } .ds-tag a:hover { text-decoration: underline; } .ds-tag a:focus-visible, .ds-tag button:focus-visible { outline: 2px solid var(--focus, #2f6bff); outline-offset: 2px; } .ds-tag-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--t-dot); } .ds-tag button { margin-left: 2px; padding: 2px 4px; border: none; border-radius: 4px; background: transparent; color: inherit; opacity: 0.6; cursor: pointer; } .ds-tag button:hover { opacity: 1; }"
+    },
+    {
+      "name": "Bookmark Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "White 16px card: host tile, title, metadata, summary and tags; lifts on hover.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-head\"><span class=\"ds-host\" style=\"background:#dcebf7;color:#174a75\">R</span><div class=\"ds-card-titles\"><a class=\"ds-card-title\" href=\"#\">Quick Start &#8211; React</a><p class=\"ds-card-meta\">react.dev/learn &#183; 20 Oct 2026</p></div><button class=\"ds-card-icon\" aria-label=\"Delete\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 6h18\"/><path d=\"M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6\"/><path d=\"M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2\"/></svg></button></div><p class=\"ds-card-summary\">An introduction to components, props and state. Walks through building a small product table step by step.</p><div class=\"ds-card-tags\"><span style=\"background:#f7e0ec;color:#7a2350\"><i style=\"background:#cf5a97\"></i>react</span><span style=\"background:#fbf0cc;color:#6b5000\"><i style=\"background:#d9a514\"></i>frontend</span></div></article>",
+      "css": ".ds-card { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: flex; flex-direction: column; gap: 12px; max-width: 440px; padding: 20px; border: 1px solid var(--line, #e6e3dd); border-radius: 16px; background: var(--surface, #fff); color: var(--ink, #262420); box-shadow: var(--shadow, 0 1px 2px rgb(38 36 32 / 0.06), 0 4px 12px rgb(38 36 32 / 0.05)); transition: box-shadow 0.15s; } .ds-card:hover { box-shadow: var(--shadow-lift, 0 2px 4px rgb(38 36 32 / 0.06), 0 12px 28px rgb(38 36 32 / 0.1)); } .ds-card-head { display: flex; align-items: flex-start; gap: 12px; } .ds-host { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px; font-size: 14px; font-weight: 700; } .ds-card-titles { flex: 1; min-width: 0; } .ds-card-title { color: inherit; font-weight: 600; line-height: 1.375; letter-spacing: -0.025em; text-decoration: none; } .ds-card-title:hover { text-decoration: underline; } .ds-card-title:focus-visible, .ds-card-icon:focus-visible { outline: 2px solid var(--focus, #2f6bff); outline-offset: 2px; } .ds-card-meta { margin: 0; font-size: 14px; color: var(--ink-3, #6a665d); } .ds-card-icon { display: inline-grid; place-items: center; width: 32px; height: 32px; margin: -4px -8px 0 0; border: none; border-radius: 8px; background: transparent; color: var(--ink-3, #6a665d); cursor: pointer; } .ds-card-icon:hover { background: var(--danger-bg, #fdebe7); color: var(--danger, #b42d1a); } .ds-card-summary { margin: 0; font-size: 15px; line-height: 1.625; color: var(--ink-2, #625e56); } .ds-card-tags { display: flex; gap: 6px; } .ds-card-tags span { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 6px; font-size: 14px; } .ds-card-tags i { width: 6px; height: 6px; border-radius: 9999px; }"
+    },
+    {
+      "name": "Pending Sticky Note",
+      "kind": "custom",
+      "refersTo": "card-pending",
+      "description": "Signature waiting state: a sticky-note card with typing dots while Claude reads the page.",
+      "html": "<article class=\"ds-sticky\"><p class=\"ds-sticky-line\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z\"/></svg>Claude is reading this page<span class=\"ds-typing\"><i></i><i></i><i></i></span></p><div class=\"ds-sticky-bars\"><div></div><div style=\"width:75%\"></div></div></article>",
+      "css": ".ds-sticky { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: flex; flex-direction: column; gap: 8px; max-width: 440px; padding: 20px; border-radius: 16px; background: var(--sticky, #fff1a8); color: var(--sticky-ink, #5c4a00); box-shadow: var(--shadow, 0 1px 2px rgb(38 36 32 / 0.06), 0 4px 12px rgb(38 36 32 / 0.05)); } .ds-sticky-line { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; font-weight: 600; } .ds-typing { display: inline-flex; gap: 2px; } .ds-typing i { width: 4px; height: 4px; border-radius: 9999px; background: currentColor; animation: ds-typing 1.2s ease-out infinite; } .ds-typing i:nth-child(2) { animation-delay: 150ms; } .ds-typing i:nth-child(3) { animation-delay: 300ms; } @keyframes ds-typing { 0%, 60%, 100% { opacity: 0.25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-2px); } } .ds-sticky-bars { display: flex; flex-direction: column; gap: 8px; opacity: 0.4; } .ds-sticky-bars div { height: 10px; border-radius: 9999px; background: color-mix(in srgb, currentColor 30%, transparent); } @media (prefers-reduced-motion: reduce) { .ds-typing i { animation: none; } }"
+    },
+    {
+      "name": "Page Header",
+      "kind": "custom",
+      "refersTo": "brand-tile-lg",
+      "description": "Notion-style page head: yellow bookmark tile, bold title, icon-led property row.",
+      "html": "<header class=\"ds-head\"><span class=\"ds-head-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z\"/></svg></span><h1>Bookmarks</h1><dl class=\"ds-props\"><div><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 6 4 14\"/><path d=\"M12 6v14\"/><path d=\"M8 8v12\"/><path d=\"M4 4v16\"/></svg><dd>7 bookmarks</dd></div><div><dt>Last saved</dt><dd class=\"ds-strong\">22 Oct 2026</dd></div></dl></header>",
+      "css": ".ds-head { font-family: var(--font-onest, Onest), ui-sans-serif, system-ui, sans-serif; display: flex; flex-direction: column; gap: 12px; color: var(--ink, #262420); } .ds-head-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: var(--accent, #ffd02f); color: var(--accent-ink, #262420); } .ds-head h1 { margin: 0; font-size: 2.75rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; } .ds-props { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; } .ds-props div { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-2, #625e56); } .ds-props svg { color: var(--ink-3, #6a665d); } .ds-props dd { margin: 0; } .ds-strong { font-weight: 500; color: var(--ink, #262420); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sticky-Note Workspace",
+    "overview": "Smart Bookmarks is a personal workspace, not a list page. The structure is Notion's: a quiet sidebar of pages and tags beside a page with a big icon, a bold title and a row of database-style properties. The warmth is Miro's: the page sits on a faint dotted board, work in progress is a yellow sticky note, and one bright yellow carries every primary action. Everything else is warm off-white, warm grey ink and white cards with hairline borders and soft shadows.\n\nDensity is comfortable rather than compact. Cards hold a recognisable summary and a few coloured tag pills, and the two-column board leaves the dot grid visible between them. The one authored moment is the hand-off from AI to user: a pending bookmark is a sticky note with typing dots, and when analysis finishes it settles into a white card and its tags pop in one by one.\n\nThe system rejects the plain centred column with grey cards, dense developer-tool looks and costume metaphors. Light and dark themes are both first-class; dark keeps the same hues, muted, on a near-black warm ground.",
+    "keyCharacteristics": [
+      "Warm off-white canvas with a 22px dot grid; sidebar one step darker.",
+      "One action yellow for Save, the active filter, the brand tile and the avatar.",
+      "Nine soft tag tones, each a pale pill with a darker dot, chosen by hashing the tag name.",
+      "White 16px-radius cards with a hairline border and a two-layer soft shadow that lifts on hover.",
+      "Onest throughout; bold, tightly tracked titles over regular 15px body copy.",
+      "Motion is reserved for waiting and arriving: typing dots, the sticky-to-card settle and the tag pop."
+    ],
+    "rules": [
+      {
+        "name": "The One Yellow Rule",
+        "body": "Action Yellow marks the thing you act with or the place you are: Save, the active filter, the brand tile. Never use it for decoration, body text or large fills.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tags-Only Tones Rule",
+        "body": "The nine tones belong to tags and the host tiles that echo them. They are never used for buttons, states or page chrome, and a tag's tone always comes from hashing its name (`lib/tag-colors.ts`), so it is identical everywhere and on every visit.",
+        "section": "colors"
+      },
+      {
+        "name": "The Focus-Is-Blue Rule",
+        "body": "Blue is the only cool hue in the system and it means keyboard focus. Do not use it for links, selection or decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight-Not-Family Rule",
+        "body": "Hierarchy is built from Onest's weights (400, 500, 600, 700) and tracking. Do not add a second typeface.",
+        "section": "typography"
+      },
+      {
+        "name": "The Board Ground Rule",
+        "body": "The main pane always sits on the dot grid (1.2px dots every 22px on Warm Paper). The sidebar never does.",
+        "section": "layout"
+      },
+      {
+        "name": "The Two-Levels Rule",
+        "body": "There are exactly two shadows, Card and Lift. Lift is a response to hover or focus (or an illustration lying on the board), never a resting state for working UI.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Nested Corners Rule",
+        "body": "A control sitting inside a container takes the next radius down (16 to 12 to 8 to 6), so the Save button inside the save bar reads as nested, not pasted on.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** put the main pane on the dot grid and keep the sidebar flat Sidebar Stone.",
+      "**Do** use Action Yellow with Accent Ink for the single primary action and for \"where you are\" in navigation.",
+      "**Do** colour every tag through `toneFor(name)` so a tag has the same tone in the sidebar, on cards and in the results line.",
+      "**Do** show waiting as a Sticky Note with typing dots, and arrival as the settle-and-pop sequence.",
+      "**Do** give every action a pending state: spinner plus a present-tense verb (\"Saving…\", \"Deleting…\").",
+      "**Do** draw icons with lucide line icons at 16px (20px in the save bar), and the page icon as the yellow bookmark tile.",
+      "**Do** define every colour for both light and dark in `app/globals.css`."
+    ],
+    "donts": [
+      "**Don't** introduce a second action colour or put white text on yellow.",
+      "**Don't** use tag tones for buttons, status or chrome.",
+      "**Don't** use blue for anything but focus.",
+      "**Don't** tilt working cards; the slight rotations belong only to the illustrative example board on the welcome screen.",
+      "**Don't** use emoji or text glyphs as icons.",
+      "**Don't** add hard offset shadows or a third shadow level.",
+      "**Don't** fall back to a plain centred column of grey cards."
+    ]
+  }
+}

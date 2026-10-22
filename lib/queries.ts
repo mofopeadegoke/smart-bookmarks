@@ -1,4 +1,4 @@
-import { and, count, desc, eq, inArray, sql, type SQL } from "drizzle-orm";
+import { and, count, desc, eq, inArray, max, sql, type SQL } from "drizzle-orm";
 import { db } from "@/db";
 import { bookmarks, bookmarkTags, tags } from "@/db/schema";
 
@@ -32,6 +32,9 @@ export async function getBookmarks(userId: string, { q, tag }: Filters) {
       summary: bookmarks.summary,
       status: bookmarks.status,
       error: bookmarks.error,
+      createdAt: bookmarks.createdAt,
+      // Drives the one-off "settle" animation; 15s covers the 2s polling gap without replaying on later visits.
+      savedRecently: sql<boolean>`${bookmarks.createdAt} > now() - interval '15 seconds'`,
     })
     .from(bookmarks)
     .where(and(...conditions))
@@ -43,6 +46,14 @@ export async function getBookmarks(userId: string, { q, tag }: Filters) {
           ]
         : [desc(bookmarks.createdAt)]),
     );
+}
+
+export async function getBookmarkStats(userId: string) {
+  const [row] = await db
+    .select({ total: count(), lastSaved: max(bookmarks.createdAt) })
+    .from(bookmarks)
+    .where(eq(bookmarks.userId, userId));
+  return row;
 }
 
 export async function getTagCounts(userId: string) {
