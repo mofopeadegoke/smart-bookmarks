@@ -65,6 +65,12 @@ components/            auth-buttons, add-bookmark-form, auto-refresh, search-box
                        bookmark-tags, bookmark-list (+ BookmarkListSkeleton),
                        spinner, form-button (submit with spinner via useFormStatus),
                        delete-button (also fades its card via data-pending)
+lib/*.test.ts          Vitest unit tests (urls, tags, safe-fetch with mocked DNS, ai reply parsing)
+vitest.config.mts      tsconfig paths, AI_MODE=fake
+playwright.config.ts   loads .env.test, builds + starts the app on :3100, globalSetup, 1 worker
+e2e/global-setup.ts    checks DB is up, runs migrations, creates "E2E User" + login cookie via Better Auth testUtils
+e2e/db.ts              test DB connection (refuses anything not localhost + *_test), reset and seed helpers
+e2e/bookmarks.spec.ts  save → analyzed, filter by tag, search, delete, signed-out screen
 ```
 
 ## Rules the code follows
@@ -81,26 +87,26 @@ components/            auth-buttons, add-bookmark-form, auto-refresh, search-box
 `DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`,
 `ANTHROPIC_API_KEY`, optional `AI_MODE=fake`.
 
+`.env.test` (git-ignored, no real secrets) points e2e tests at the local test database:
+`DATABASE_URL=postgres://postgres:postgres@localhost:54329/smart_bookmarks_test`, `BETTER_AUTH_URL=http://localhost:3100`,
+`AI_MODE=fake`, empty `ANTHROPIC_API_KEY`, dummy GitHub/secret values.
+
 ## Status
 
-Steps 0–7 are done and working: setup, database, sign-in, saving, safe fetching, AI summaries and
-tags, tag filter and search with loading states, editing tags and re-analyze.
+Steps 0–8 are done and working: setup, database, sign-in, saving, safe fetching, AI summaries and
+tags, tag filter and search with loading states, editing tags and re-analyze, unit and e2e tests.
 
 ## Remaining steps
 
-### Step 8 — Tests
-- Vitest unit tests for the logic most likely to break:
-  - `normalizeUrl` (adds https, rejects junk, strips hash, rejects non-http)
-  - `cleanTag` (spaces → dashes, lowercase, symbols, length)
-  - `assertPublicUrl` rejects `127.0.0.1`, `10.0.0.1`, `192.168.1.1`, `169.254.169.254`, `::1`,
-    `file://`, non-existent hosts (mock `node:dns/promises` lookup so tests don't need network)
-  - AI reply validation: refactor so the Zod schema/parse is exported and testable; cover bad shapes,
-    duplicate and messy tags, more than 5 tags
-- Never call the real Claude API in tests; use `AI_MODE=fake`.
-- Playwright end-to-end: 3+ flows (save link → ready with summary/tags; filter by tag; search; delete).
-  Needs a way to sign in without GitHub in tests — e.g. a test-only sign-in enabled only by an env var
-  (never in production), or seed a session row directly. Explain the trade-off to Daniel.
-- Add scripts: `test`, `test:e2e`, `typecheck`.
+### Step 8 — Tests (done)
+- `pnpm test` (Vitest, 67 tests), `pnpm typecheck`, `pnpm test:e2e` (Playwright, Chromium, 5 flows).
+- E2E needs the local test DB: `pnpm db:test:up` starts the podman container `smart-bookmarks-test-db`
+  (`postgres:16`, port 54329). It does not restart on its own after a reboot.
+- Sign-in in tests: a separate Better Auth instance with `testUtils` in `e2e/global-setup.ts` makes a
+  session cookie (same secret + DB as the app). `lib/auth.ts` has no test-only code path.
+- Filter/search/delete tests seed "ready" bookmarks directly; only "save a link" fetches a real page
+  (`https://example.com`, so it needs internet) and uses `AI_MODE=fake` (tag `test`).
+- Not yet covered by e2e: add/remove tag, re-analyze, failed analysis, one user can't see another's bookmarks.
 
 ### After Step 8 — Search in any language
 Tags already accept any language. Search does not yet (checked against the database):
@@ -132,9 +138,9 @@ Tags already accept any language. Search does not yet (checked against the datab
 ### "Done" checklist
 - [ ] Live URL, sign-in works, data is per user
 - [ ] Save, analyze, tag, search, edit and delete all work
-- [ ] Unit tests for parsing/validation, plus 3+ Playwright flows
+- [x] Unit tests for parsing/validation, plus 3+ Playwright flows
 - [ ] CI runs lint, typecheck and tests on every push; deploy on merge
-- [ ] SSRF guards have their own tests
+- [x] SSRF guards have their own tests
 - [ ] README with architecture sketch and demo GIF; short post on one hard decision
 
 ### Optional, only if ahead of schedule
