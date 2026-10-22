@@ -2,13 +2,12 @@
 
 import { useActionState, useEffect, useRef } from "react";
 import { saveBookmark, type SaveState } from "@/app/actions";
+import { Spinner } from "@/components/spinner";
 
 export function AddBookmarkForm() {
-  // useActionState runs saveBookmark and gives back its result plus a "pending" flag
   const [state, formAction, pending] = useActionState<SaveState, FormData>(saveBookmark, {});
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Clear the box after a successful save
   useEffect(() => {
     if (state.ok) formRef.current?.reset();
   }, [state]);
@@ -27,8 +26,9 @@ export function AddBookmarkForm() {
         <button
           type="submit"
           disabled={pending}
-          className="rounded-md bg-black px-4 py-2 text-white disabled:opacity-50"
+          className="inline-flex items-center gap-2 rounded-md bg-black px-4 py-2 text-white disabled:opacity-50"
         >
+          {pending && <Spinner label="Saving" />}
           {pending ? "Saving…" : "Save"}
         </button>
       </div>

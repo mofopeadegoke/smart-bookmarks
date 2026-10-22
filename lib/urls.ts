@@ -1,4 +1,3 @@
-// Turns what the user typed into a clean link, or returns null if it isn't one.
 export function normalizeUrl(input: string): string | null {
   let text = input.trim();
   if (!text) return null;
@@ -8,13 +7,13 @@ export function normalizeUrl(input: string): string | null {
 
   try {
     const url = new URL(text);
-    // Only allow normal web links (no "file://", "javascript:", etc.)
     if (url.protocol !== "http:" && url.protocol !== "https:") return null;
-    // A real website name has a dot in it, like "example.com"
+    // Rejects bare hostnames like `localhost`.
     if (!url.hostname.includes(".")) return null;
-    url.hash = ""; // "page#section" and "page" count as the same link
+    // So `page#a` and `page` dedupe as one bookmark.
+    url.hash = "";
     return url.toString();
   } catch {
-    return null; // not a link at all
+    return null;
   }
 }

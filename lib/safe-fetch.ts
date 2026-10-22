@@ -5,7 +5,6 @@ const TIMEOUT_MS = 8_000;
 const MAX_BYTES = 2 * 1024 * 1024;
 const MAX_REDIRECTS = 5;
 
-// Checks that a link points to a normal public website.
 export async function assertPublicUrl(raw: string | URL): Promise<URL> {
   const url = new URL(raw);
 
@@ -29,7 +28,6 @@ export async function assertPublicUrl(raw: string | URL): Promise<URL> {
   return url;
 }
 
-// Visits a page safely and returns its HTML.
 export async function fetchPage(
   rawUrl: string,
 ): Promise<{ html: string; finalUrl: string }> {
