@@ -1,6 +1,6 @@
 import { desc, eq } from "drizzle-orm";
 import { db } from "@/db";
-import { bookmarks } from "@/db/schema";
+import { bookmarks, bookmarkTags, tags } from "@/db/schema";
 import { getCurrentUser } from "@/lib/session";
 import { deleteBookmark } from "@/app/actions";
 import { SignInButton, SignOutButton } from "@/components/auth-buttons";
@@ -10,7 +10,6 @@ import { AutoRefresh } from "@/components/auto-refresh";
 export default async function Home() {
   const user = await getCurrentUser();
 
-  // Signed out: show the welcome screen
   if (!user) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center gap-4">
@@ -21,12 +20,27 @@ export default async function Home() {
     );
   }
 
-  // Signed in: get ONLY this user's bookmarks, newest first
+  // This user's bookmarks, newest first
   const rows = await db
     .select()
     .from(bookmarks)
     .where(eq(bookmarks.userId, user.id))
     .orderBy(desc(bookmarks.createdAt));
+
+  // NEW: every (bookmark, tag name) pair for this user
+  const tagRows = await db
+    .select({ bookmarkId: bookmarkTags.bookmarkId, name: tags.name })
+    .from(bookmarkTags)
+    .innerJoin(tags, eq(bookmarkTags.tagId, tags.id))
+    .where(eq(tags.userId, user.id));
+
+  // NEW: group them, so we can look up "which tags does bookmark X have?"
+  const tagsByBookmark = new Map<string, string[]>();
+  for (const { bookmarkId, name } of tagRows) {
+    const list = tagsByBookmark.get(bookmarkId) ?? [];
+    list.push(name);
+    tagsByBookmark.set(bookmarkId, list);
+  }
 
   const anyPending = rows.some((b) => b.status === "pending");
 
@@ -53,8 +67,6 @@ export default async function Home() {
                   </a>
                   <p className="truncate text-sm text-gray-500">{b.url}</p>
                 </div>
-
-                {/* .bind fills in which bookmark to delete */}
                 <form action={deleteBookmark.bind(null, b.id)}>
                   <button type="submit" className="text-sm text-red-600 hover:underline">
                     Delete
@@ -63,9 +75,25 @@ export default async function Home() {
               </div>
 
               {b.status === "pending" && <p className="mt-2 text-sm text-gray-500">Analyzing…</p>}
-              {b.status === "ready" && <p className="mt-2 text-sm">{b.summary}</p>}
+
+              {b.status === "ready" && (
+                <>
+                  <p className="mt-2 text-sm">{b.summary}</p>
+                  {/* NEW: the tags */}
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {(tagsByBookmark.get(b.id) ?? []).map((name) => (
+                      <li key={name} className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-700">
+                        {name}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
               {b.status === "failed" && (
-                <p className="mt-2 text-sm text-red-600">Couldn't analyze this page.</p>
+                <p className="mt-2 text-sm text-red-600">
+                  Couldn't analyze this page: {b.error ?? "unknown error"}
+                </p>
               )}
             </li>
           ))}

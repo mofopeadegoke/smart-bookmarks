@@ -8,6 +8,7 @@ import { bookmarks } from "@/db/schema";
 import { requireUser } from "@/lib/session";
 import { normalizeUrl } from "@/lib/urls";
 import { analyzeBookmark } from "@/lib/analyze";
+import { assertPublicUrl } from "@/lib/safe-fetch";
 
 export type SaveState = { error?: string; ok?: boolean };
 
@@ -21,6 +22,14 @@ export async function saveBookmark(
   // 2. Is it a real link?
   const url = normalizeUrl(String(formData.get("url") ?? ""));
   if (!url) return { error: "That doesn't look like a web link." };
+
+  try {
+    await assertPublicUrl(url);
+  } catch (err) {
+    return {
+      error: err instanceof Error ? err.message : "This link isn't allowed.",
+    };
+  }
 
   // 3. Save it. If this user already saved this link, the database skips it.
   const [row] = await db
