@@ -20,6 +20,10 @@ const AnalysisSchema = z
     tags: [...new Set(a.tags.map(cleanTag).filter(Boolean))].slice(0, 5),
   }));
 
+export function parseAnalysis(jsonText: string): Analysis {
+  return AnalysisSchema.parse(JSON.parse(jsonText));
+}
+
 const replyShape = {
   type: "object",
   properties: {
@@ -80,7 +84,7 @@ async function askClaude(input: AnalysisInput): Promise<Analysis> {
   if (!block || block.type !== "text")
     throw new Error("The AI sent an empty reply");
 
-  return AnalysisSchema.parse(JSON.parse(block.text));
+  return parseAnalysis(block.text);
 }
 
 async function claudeAnalyze(input: AnalysisInput): Promise<Analysis> {

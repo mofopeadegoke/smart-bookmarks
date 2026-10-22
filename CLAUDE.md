@@ -32,7 +32,7 @@ search, edit tags and re-analyze.
 | Page fetching | `lib/safe-fetch.ts` with SSRF guards; `linkedom` + `@mozilla/readability` for extraction | Text truncated to 8,000 chars before sending to Claude |
 | Background work | `after()` from `next/server` | Save returns instantly; analysis runs after the response |
 | Polling | `components/auto-refresh.tsx` calls `router.refresh()` every 2s while any bookmark is pending | Chosen over TanStack Query since data comes from server components |
-| Search | Generated `tsvector` column (`search`) with weights (title A, summary B), GIN index, `websearch_to_tsquery`, `ts_rank` ordering | |
+| Search | Generated `tsvector` column (`search`) with weights (title A, summary B), GIN index, `websearch_to_tsquery`, `ts_rank` ordering | Known gaps: accents must match exactly; Japanese/Chinese text can't be searched by word (see "Search in any language") |
 | Filters | In the URL: `/?tag=react&q=caching` | `bookmarksHref()` in `lib/urls.ts` builds links |
 
 ## Data model (`db/schema.ts`)
@@ -55,7 +55,7 @@ lib/urls.ts            normalizeUrl(), bookmarksHref()
 lib/safe-fetch.ts      assertPublicUrl(), fetchPage() — 8s timeout, 2MB cap, manual redirects (max 5), HTML only
 lib/extract.ts         extractContent(html) → { title, text }
 lib/ai.ts              analyze() — real Claude, or fakeAnalyze when AI_MODE=fake
-lib/tags.ts            cleanTag(), attachTag(executor, userId, bookmarkId, name)
+lib/tags.ts            cleanTag() (Unicode letters kept, NFC, single dashes, 30 chars), attachTag(executor, userId, bookmarkId, name)
 lib/analyze.ts         analyzeBookmark(id): fetch → extract → AI → transaction saving tags + summary
 lib/queries.ts         getBookmarks(userId, {q, tag}), getTagCounts(userId), getTagsByBookmark(userId)
 app/actions.ts         saveBookmark, deleteBookmark, addTag, removeTag, reanalyzeBookmark
@@ -101,6 +101,15 @@ tags, tag filter and search with loading states, editing tags and re-analyze.
   Needs a way to sign in without GitHub in tests — e.g. a test-only sign-in enabled only by an env var
   (never in production), or seed a session row directly. Explain the trade-off to Daniel.
 - Add scripts: `test`, `test:e2e`, `typecheck`.
+
+### After Step 8 — Search in any language
+Tags already accept any language. Search does not yet (checked against the database):
+- `cafe` doesn't find `café`. Fix: `unaccent` extension. A generated column needs an IMMUTABLE
+  function, so wrap `unaccent('unaccent', …)` in our own immutable SQL function.
+- Japanese/Chinese have no spaces, so the `english` parser stores a whole sentence as one word and
+  `日本語` doesn't match `日本語の記事です`. Fix: `pg_trgm` trigram index on title/summary, used alongside
+  the tsvector search (e.g. `OR title ILIKE '%q%'` backed by a GIN trigram index).
+- Both need a migration; add tests with accented, Cyrillic and CJK titles.
 
 ### Step 9 — CI (GitHub Actions)
 - On push and pull request: install with pnpm (`pnpm/action-setup` + `actions/setup-node` with pnpm cache),

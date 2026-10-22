@@ -3,12 +3,17 @@ import { db } from "@/db";
 import { bookmarkTags, tags } from "@/db/schema";
 
 export function cleanTag(tag: string) {
-  return tag
+  const cleaned = tag
+    // "é" can arrive as one character or as "e" + an accent mark; NFC makes them the same tag.
+    .normalize("NFC")
     .trim()
     .toLowerCase()
     .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9+#.-]/g, "")
-    .slice(0, 30);
+    .replace(/[^\p{L}\p{N}+#.-]/gu, "")
+    .replace(/-{2,}/g, "-")
+    .replace(/^-+|-+$/g, "");
+  // Slice by character, not UTF-16 unit, so a 30-char cut never splits a character in half.
+  return Array.from(cleaned).slice(0, 30).join("");
 }
 
 type Transaction = Parameters<Parameters<typeof db.transaction>[0]>[0];
