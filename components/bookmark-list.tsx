@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { getBookmarks, getTagCounts, getTagsByBookmark } from "@/lib/queries";
-import { bookmarksHref } from "@/lib/urls";
-import { deleteBookmark } from "@/app/actions";
+import { deleteBookmark, reanalyzeBookmark } from "@/app/actions";
 import { AutoRefresh } from "@/components/auto-refresh";
+import { BookmarkTags } from "@/components/bookmark-tags";
 import { DeleteButton } from "@/components/delete-button";
+import { FormButton } from "@/components/form-button";
 import { Spinner } from "@/components/spinner";
 import { TagFilter } from "@/components/tag-filter";
 
@@ -49,9 +50,18 @@ export async function BookmarkList({ userId, q, tag }: Props) {
                   </a>
                   <p className="truncate text-sm text-gray-500">{b.url}</p>
                 </div>
-                <form action={deleteBookmark.bind(null, b.id)}>
-                  <DeleteButton />
-                </form>
+                <div className="flex shrink-0 items-center gap-3">
+                  {b.status !== "pending" && (
+                    <form action={reanalyzeBookmark.bind(null, b.id)}>
+                      <FormButton pendingText="Starting…" className="text-sm text-gray-600 hover:underline">
+                        Re-analyze
+                      </FormButton>
+                    </form>
+                  )}
+                  <form action={deleteBookmark.bind(null, b.id)}>
+                    <DeleteButton />
+                  </form>
+                </div>
               </div>
 
               {b.status === "pending" && (
@@ -73,18 +83,7 @@ export async function BookmarkList({ userId, q, tag }: Props) {
               {b.status === "ready" && (
                 <>
                   <p className="mt-2 text-sm">{b.summary}</p>
-                  <ul className="mt-3 flex flex-wrap gap-2">
-                    {(tagsByBookmark.get(b.id) ?? []).map((name) => (
-                      <li key={name}>
-                        <Link
-                          href={bookmarksHref({ q, tag: name })}
-                          className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-700 hover:bg-gray-200"
-                        >
-                          {name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <BookmarkTags bookmarkId={b.id} tags={tagsByBookmark.get(b.id) ?? []} q={q} />
                 </>
               )}
 

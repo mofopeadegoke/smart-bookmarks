@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
+import { cleanTag } from "@/lib/tags";
 
 export type AnalysisInput = {
   title: string | null;
@@ -8,15 +9,6 @@ export type AnalysisInput = {
 };
 
 export type Analysis = { summary: string; tags: string[] };
-
-function cleanTag(tag: string) {
-  return tag
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9+#.-]/g, "")
-    .slice(0, 30);
-}
 
 const AnalysisSchema = z
   .object({

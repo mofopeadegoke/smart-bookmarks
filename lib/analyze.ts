@@ -1,6 +1,7 @@
-import { and, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { bookmarks, bookmarkTags, tags } from "@/db/schema";
+import { attachTag } from "@/lib/tags";
 import { fetchPage } from "@/lib/safe-fetch";
 import { extractContent } from "@/lib/extract";
 import { analyze } from "@/lib/ai";
@@ -40,20 +41,7 @@ export async function analyzeBookmark(bookmarkId: string) {
         .where(eq(bookmarkTags.bookmarkId, bookmarkId));
 
       for (const name of result.tags) {
-        await tx
-          .insert(tags)
-          .values({ userId: bookmark.userId, name })
-          .onConflictDoNothing();
-
-        const [tag] = await tx
-          .select({ id: tags.id })
-          .from(tags)
-          .where(and(eq(tags.userId, bookmark.userId), eq(tags.name, name)));
-
-        await tx
-          .insert(bookmarkTags)
-          .values({ bookmarkId, tagId: tag.id })
-          .onConflictDoNothing();
+        await attachTag(tx, bookmark.userId, bookmarkId, name);
       }
 
       await tx
