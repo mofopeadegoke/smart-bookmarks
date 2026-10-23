@@ -158,5 +158,10 @@ and a visual redesign (see Design).
 - [ ] README with architecture sketch and demo GIF; short post on one hard decision
 
 ### Optional, only if ahead of schedule
+- Per-user daily AI limit (e.g. 30 analyses/day across save and re-analyze), needed before sharing the
+  app beyond the portfolio. Over the limit: still save the link, skip or defer analysis, say so kindly.
+  Cost context: about $0.00035 per analysis on Haiku 5.5; abuse, not normal use, is the risk. Also set a
+  monthly spend limit in the Anthropic Console (manual, not code). User AI subscriptions can't be used
+  by third-party apps; bring-your-own-key is a possible later option.
 - Edit titles; "keep my manual tags" on re-analyze; DNS rebinding fix; save from the Inscribe extension.
 - Do not build "related bookmarks" with embeddings — that is week 4.

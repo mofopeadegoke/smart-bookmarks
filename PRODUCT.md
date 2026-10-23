@@ -12,6 +12,9 @@ web
   them again. Uses it on desktop and on his phone.
 - **Portfolio viewers** (recruiters, peers) opening it from Daniel's portfolio to judge his
   full-stack and AI engineering craft. They sign in with GitHub, save a link or two, and look around.
+- **Later: other people using it for real.** Sign-up stays open to anyone with GitHub, so AI cost must
+  stay bounded: a monthly spend limit on the Anthropic account and a per-user daily analysis limit
+  before the app is shared beyond the portfolio. Saving a link always works, even when AI is limited.
 
 ## Product Purpose
 
