@@ -1,4 +1,4 @@
-import { and, count, desc, eq, inArray, max, sql, type SQL } from "drizzle-orm";
+import { and, count, desc, eq, inArray, max, or, sql, type SQL } from "drizzle-orm";
 import { db } from "@/db";
 import { bookmarks, bookmarkTags, tags } from "@/db/schema";
 
@@ -8,10 +8,16 @@ export async function getBookmarks(userId: string, { q, tag }: Filters) {
   const conditions: SQL[] = [eq(bookmarks.userId, userId)];
 
   // Accepts search-engine syntax like: react -native "server components"
-  const searchQuery = sql`websearch_to_tsquery('english', ${q ?? ""})`;
+  const searchQuery = sql`websearch_to_tsquery('english', immutable_unaccent(${q ?? ""}))`;
 
   if (q) {
-    conditions.push(sql`${bookmarks.search} @@ ${searchQuery}`);
+    const pattern = `%${escapeLike(q.trim())}%`;
+    conditions.push(
+      or(
+        sql`${bookmarks.search} @@ ${searchQuery}`,
+        sql`${bookmarks.searchText} like lower(immutable_unaccent(${pattern}))`,
+      )!,
+    );
   }
 
   if (tag) {
@@ -83,4 +89,9 @@ export async function getTagsByBookmark(userId: string) {
     map.set(bookmarkId, list);
   }
   return map;
+}
+
+// So a search for "50%" or "snake_case" matches those characters literally
+function escapeLike(value: string) {
+  return value.replace(/[\\%_]/g, "\\$&");
 }

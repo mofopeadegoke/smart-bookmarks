@@ -32,14 +32,15 @@ search, edit tags and re-analyze.
 | Page fetching | `lib/safe-fetch.ts` with SSRF guards; `linkedom` + `@mozilla/readability` for extraction | Text truncated to 8,000 chars before sending to Claude |
 | Background work | `after()` from `next/server` | Save returns instantly; analysis runs after the response |
 | Polling | `components/auto-refresh.tsx` calls `router.refresh()` every 2s while any bookmark is pending | Chosen over TanStack Query since data comes from server components |
-| Search | Generated `tsvector` column (`search`) with weights (title A, summary B), GIN index, `websearch_to_tsquery`, `ts_rank` ordering | Known gaps: accents must match exactly; Japanese/Chinese text can't be searched by word (see "Search in any language") |
+| Search | Generated `tsvector` column (`search`, title A / summary B, GIN) with `websearch_to_tsquery` + `ts_rank`, OR a substring match on generated `search_text` (lowercased, GIN trigram index) | Accents ignored via `immutable_unaccent()` (migration 0003, wraps `unaccent`). Substring match is what makes Japanese/Chinese searchable; `%`/`_` are escaped |
 | Filters | In the URL: `/?tag=react&q=caching` | `bookmarksHref()` in `lib/urls.ts` builds links |
 
 ## Data model (`db/schema.ts`)
 
 - `user`, `session`, `account`, `verification` — Better Auth (`db/auth-schema.ts`)
 - `bookmarks` — id (uuid), userId → user.id (cascade), url, title, summary,
-  status enum `pending|ready|failed`, error, createdAt, search (generated tsvector).
+  status enum `pending|ready|failed`, error, createdAt, search (generated tsvector),
+  search_text (generated, unaccented lowercase title + summary).
   Unique (userId, url).
 - `tags` — id, userId → user.id (cascade), name. Unique (userId, name).
 - `bookmark_tags` — bookmarkId, tagId (both cascade), composite primary key.
@@ -75,7 +76,7 @@ vitest.config.mts      tsconfig paths, AI_MODE=fake
 playwright.config.ts   loads .env.test, builds + starts the app on :3100, globalSetup, 1 worker
 e2e/global-setup.ts    checks DB is up, runs migrations, creates "E2E User" + login cookie via Better Auth testUtils
 e2e/db.ts              test DB connection (refuses anything not localhost + *_test), reset and seed helpers
-e2e/bookmarks.spec.ts  save → analyzed, filter by tag, search, delete, signed-out screen
+e2e/bookmarks.spec.ts  save → analyzed, filter by tag, search (incl. accented/Cyrillic/Japanese), delete, signed-out screen
 ```
 
 ## Design
@@ -115,13 +116,13 @@ e2e/bookmarks.spec.ts  save → analyzed, filter by tag, search, delete, signed-
 ## Status
 
 Steps 0–8 are done and working: setup, database, sign-in, saving, safe fetching, AI summaries and
-tags, tag filter and search with loading states, editing tags and re-analyze, unit and e2e tests,
+tags, tag filter and search (any language) with loading states, editing tags and re-analyze, unit and e2e tests,
 and a visual redesign (see Design).
 
 ## Remaining steps
 
 ### Step 8 — Tests (done)
-- `pnpm test` (Vitest, 67 tests), `pnpm typecheck`, `pnpm test:e2e` (Playwright, Chromium, 5 flows).
+- `pnpm test` (Vitest, 69 tests), `pnpm typecheck`, `pnpm test:e2e` (Playwright, Chromium, 11 tests).
 - E2E needs the local test DB: `pnpm db:test:up` starts the podman container `smart-bookmarks-test-db`
   (`postgres:16`, port 54329). It does not restart on its own after a reboot.
 - Sign-in in tests: a separate Better Auth instance with `testUtils` in `e2e/global-setup.ts` makes a
@@ -129,15 +130,6 @@ and a visual redesign (see Design).
 - Filter/search/delete tests seed "ready" bookmarks directly; only "save a link" fetches a real page
   (`https://example.com`, so it needs internet) and uses `AI_MODE=fake` (tag `test`).
 - Not yet covered by e2e: add/remove tag, re-analyze, failed analysis, one user can't see another's bookmarks.
-
-### After Step 8 — Search in any language
-Tags already accept any language. Search does not yet (checked against the database):
-- `cafe` doesn't find `café`. Fix: `unaccent` extension. A generated column needs an IMMUTABLE
-  function, so wrap `unaccent('unaccent', …)` in our own immutable SQL function.
-- Japanese/Chinese have no spaces, so the `english` parser stores a whole sentence as one word and
-  `日本語` doesn't match `日本語の記事です`. Fix: `pg_trgm` trigram index on title/summary, used alongside
-  the tsvector search (e.g. `OR title ILIKE '%q%'` backed by a GIN trigram index).
-- Both need a migration; add tests with accented, Cyrillic and CJK titles.
 
 ### Step 9 — CI (GitHub Actions)
 - On push and pull request: install with pnpm (`pnpm/action-setup` + `actions/setup-node` with pnpm cache),

@@ -39,14 +39,19 @@ export const bookmarks = pgTable(
     createdAt: timestamp("created_at", { withTimezone: true })
       .notNull()
       .defaultNow(),
-    // Title matches rank above summary matches
+    // Title matches rank above summary matches. immutable_unaccent is defined in drizzle/0003_search_extensions.sql.
     search: tsvector("search").generatedAlwaysAs(
-      sql`setweight(to_tsvector('english', coalesce(title, '')), 'A') || setweight(to_tsvector('english', coalesce(summary, '')), 'B')`,
+      sql`setweight(to_tsvector('english', immutable_unaccent(coalesce(title, ''))), 'A') || setweight(to_tsvector('english', immutable_unaccent(coalesce(summary, ''))), 'B')`,
+    ),
+    // Substring matching for languages written without spaces (Japanese, Chinese), where `search` sees one giant word
+    searchText: text("search_text").generatedAlwaysAs(
+      sql`lower(immutable_unaccent(coalesce(title, '') || ' ' || coalesce(summary, '')))`,
     ),
   },
   (t) => [
     unique().on(t.userId, t.url),
     index("bookmarks_search_idx").using("gin", t.search),
+    index("bookmarks_search_text_idx").using("gin", t.searchText.op("gin_trgm_ops")),
   ],
 );
 export const tags = pgTable(

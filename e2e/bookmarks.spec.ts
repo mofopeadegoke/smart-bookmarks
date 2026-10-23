@@ -75,6 +75,50 @@ test("searching titles and summaries finds the right bookmark", async ({ page })
   await expect(page.getByRole("search")).toHaveCount(1);
 });
 
+const CAFE = {
+  url: "https://example.org/cafe",
+  title: "Le meilleur café de Paris",
+  summary: "Où boire un bon espresso près du Louvre.",
+  tags: ["coffee"],
+};
+
+const RUSSIAN = {
+  url: "https://example.org/ru",
+  title: "Введение в базы данных",
+  summary: "Как работают индексы и запросы.",
+  tags: ["базы-данных"],
+};
+
+const JAPANESE = {
+  url: "https://example.org/ja",
+  title: "日本語の記事です",
+  summary: "東京のおすすめラーメン店を紹介します。",
+  tags: ["ramen"],
+};
+
+for (const [query, expected] of [
+  ["cafe", CAFE],
+  ["CAFÉ", CAFE],
+  ["базы", RUSSIAN],
+  ["日本語", JAPANESE],
+  ["ラーメン", JAPANESE],
+] as const) {
+  test(`searching "${query}" finds "${expected.title}"`, async ({ page }) => {
+    await seedBookmarks(db, [CAFE, RUSSIAN, JAPANESE]);
+    await page.goto(`/?q=${encodeURIComponent(query)}`);
+
+    await expect(card(page, expected.url)).toBeVisible();
+    await expect(page.getByText("1 result")).toBeVisible();
+  });
+}
+
+test("search treats % literally", async ({ page }) => {
+  await seedBookmarks(db, [CAFE, RUSSIAN, JAPANESE]);
+  await page.goto(`/?q=${encodeURIComponent("%")}`);
+
+  await expect(page.getByText("0 results")).toBeVisible();
+});
+
 test("deleting a bookmark removes it for good", async ({ page }) => {
   await seedBookmarks(db, [REACT]);
   await page.goto("/");
